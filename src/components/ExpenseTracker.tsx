@@ -59,16 +59,16 @@ export default function ExpenseTracker() {
             <button onClick={addExpense}>Add Expense</button>
 
             <h2>Expenses</h2>
-            <ul style={{ listStyle: 'none', textAlign: 'left' }}>
+            <ul style={{ listStyle: 'none', textAlign: 'left', width: '100%'}}>
                 {
                     expenses.map(expense => {
                         return <li
                             key={expense.id}
-                            style={{ textDecoration: expense.cleared ? "line-through" : "none", margin: 10, width: '100%' }}
+                            style={{ textDecoration: expense.cleared ? "line-through" : "none", width: '100%' }}
                         >{expense.item} : £{expense.cost} : in Budget? {expense.cost > remainingBudget ? "No" : "Yes"}
                             <button
                                 disabled={expense.cost > remainingBudget}
-                                style={{ float: "right" }}
+                                style={{ float: "right", padding: '0 10px', backgroundColor: '#75c3c9', color: 'black' }}
                                 onClick={() => clearExpense(expense.id)}>Clear Expense</button></li>
                     })
                 }

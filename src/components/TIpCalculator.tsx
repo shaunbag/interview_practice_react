@@ -35,6 +35,7 @@ export default function TipCalculator() {
             <input type="number" value={input} onChange={(e) => setInput(e.target.value)} />
             <button onClick={() => setShowTips(true)}>Calculate</button>
             <button onClick={() => setShowTips(false)}>Clear</button>
+            <ul style={{listStyle: 'none', textAlign: 'center'}}>
             {
                 showTips && (
                     tips.map(item => {
@@ -43,6 +44,7 @@ export default function TipCalculator() {
                     })
                 )
             }
+            </ul>
         </>
     )
 }

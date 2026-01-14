@@ -35,7 +35,7 @@ export default function Todo() {
             <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
             <button onClick={addTodo}>Add Todo</button>
 
-            <ul>
+            <ul style={{listStyle: 'none'}}>
                 {
                     todos.map(todo => {
                         return <li key={todo.id} onClick={() => updateTodo(todo.id)} style={{ textDecoration: todo.completed ? 'line-through' : 'none', cursor: 'pointer' }}>{todo.todo}</li>
