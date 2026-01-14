@@ -10,7 +10,6 @@ export default function Calc() {
     const [rightSide, setRightSide] = useState<string>("")
     const [symbol, setSymbol] = useState<Sym>(null)
 
-
     // remember do not use parseInt this is buggy here and doesnt handle decimals 1.5 -> 1
     function calculate(leftSide: string, rightSide: string, symbol: Sym): number | null {
         //convert to Number
@@ -72,6 +71,7 @@ export default function Calc() {
                     }
                 }}>=</button>
                 <button onClick={() => {
+                    // clear down all state ready for next calculation
                     setLeftSide("")
                     setRightSide("")
                     setSymbol(null)
