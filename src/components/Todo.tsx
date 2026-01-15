@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Todo = {
     id: number;
@@ -10,7 +10,14 @@ type Todo = {
 export default function Todo() {
 
     const [input, setInput] = useState<string>("")
-    const [todos, setTodos] = useState<Todo[]>([])
+    const [todos, setTodos] = useState<Todo[]>(() => {
+        const stored = localStorage.getItem("todos")
+        return stored ? JSON.parse(stored) : []
+    })
+
+    useEffect(() => {
+      localStorage.setItem("todos", JSON.stringify(todos))
+    }, [todos])
 
     // when adding todos check the input, and trim any white space
     function addTodo() {
